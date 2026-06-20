@@ -34,8 +34,8 @@ async function main() {
         }
         if (amount) {
             const amountNum = Number(amount);
-            if (Number.isNaN(amountNum)) {
-                throw new Error("<AMOUNTS> must be a valid number");
+            if (Number.isNaN(amountNum) || !(amountNum > 0)) {
+                throw new Error("<AMOUNTS> must be a valid positive number");
             }
             currencyData.amount = amountNum;
             currencyData.rates[dest] *= amountNum
